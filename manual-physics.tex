@@ -1,0 +1,115 @@
+\documentclass[11pt,twoside,a4paper]{article}
+%{book}
+
+% This is an automatically generated file.
+% Do not edit it.
+% Changes to this file are not preserved!
+
+\usepackage{tocloft}
+\usepackage{hyperref}
+\usepackage{listings}
+\lstset{
+basicstyle=\small\ttfamily,
+columns=flexible,
+breaklines=true
+}
+\setlength{\cftsubsecnumwidth}{3.5em}
+
+\title{Manual for Package:
+physics\protect\\Revision 1
+}
+\author{Karl Kästner}
+%\date{}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+% licence
+% abstract
+
+
+\section{@Constant}
+\subsection{Constant}
+${}$
+\begin{lstlisting}
+ Constant and physical standard quantities
+
+\end{lstlisting}
+\subsection{celsius\_to\_kelvin}
+${}$
+\begin{lstlisting}
+ convert temperature from degree Celsius to Kelvin
+ function t_K = celsius_to_kelvin(t_C)
+
+\end{lstlisting}
+\subsection{depth\_to\_pressure}
+${}$
+\begin{lstlisting}
+ convert depth to pressure in fresh water at standard temperature
+ 
+    z = (p - p0)/(rho g)
+ => p = rho g z + p0
+
+ input :
+ p0 : nx1 or scalar, pressure at water surface in BAR
+ d  : depth in metre
+
+ output :
+ p  : nx1, pressure at measurement depth in BAR
+
+
+\end{lstlisting}
+\subsection{kelvin\_to\_celsius}
+${}$
+\begin{lstlisting}
+ convert temperature degree Kelvin to Celsius
+
+\end{lstlisting}
+\subsection{pressure\_to\_depth}
+${}$
+\begin{lstlisting}
+ convert pressure to depth in fresh water at standard temperature
+ 
+ z = (p - p0)/(rho*g)
+
+ input:
+ p  : nx1, pressure at measurement depth in BAR
+ p0 : nx1 or scalar, pressure at water surface in BAR
+
+ output:
+ d  : depth in metre
+
+\end{lstlisting}
+\subsection{sound\_absorption\_water}
+${}$
+\begin{lstlisting}
+ sound absrobption in water
+ following Francois and Garrison, 1982
+ 
+ 
+ function alpha = sound_absorption(f,S,D,T)
+
+ input:
+ f : frequency (Hz)
+ S : salinity
+ D : depth (m)
+ T : temperature (°C)
+
+ output:
+ alpha = sound attenuation in dB/m (not dB/km)
+
+ function alpha = sound_absorption(f,S,D,T,model)
+
+\end{lstlisting}
+\subsection{sound\_velocity\_water}
+${}$
+\begin{lstlisting}
+ sound velocity in water
+ following Lubbers and Graaff (1998)
+ this formula does not include depth and salinity effects
+
+\end{lstlisting}
+\end{document}
