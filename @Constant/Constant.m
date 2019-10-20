@@ -54,7 +54,7 @@ classdef Constant
 	end % Const
 	methods (Static)
 		c    = sound_velocity_water(T);
-	        alpha = sound_absorption(f,S,D,T,model);
+	        alpha = sound_absorption_water(f,S,D,T,model);
 		t_C  = kelvin_to_celsius(t_K);
 		t_K  = celsius_to_kelvin(t_C);
 		d    = pressure_to_depth(p,p0);
