@@ -10,7 +10,7 @@
 %% f : frequency (Hz)
 %% S : salinity
 %% D : depth (m)
-%% T : temperature (°C)
+%% T : temperature (degree C)
 %%
 %% output:
 %% alpha = sound attenuation in dB/m (not dB/km)
