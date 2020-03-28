@@ -13,6 +13,8 @@
 % https://www.engineeringtoolbox.com/beam-stress-deflection-d_1312.html
 % https://skyciv.com/free-beam-calculator/
 % shear is +/- F/2
+%
+%function [d_m,theta] = beam_deflection(F_N,l_m,E_Pa,Iz_m4,p)
 function [d_m,theta] = beam_deflection(F_N,l_m,E_Pa,Iz_m4,p)
 	% max deflection at centre
 	d_m = F_N*l_m^3/(48*E_Pa*Iz_m4);

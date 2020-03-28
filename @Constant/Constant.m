@@ -36,10 +36,10 @@ classdef Constant
 		% kinematic is nu=mu/rho
 		% dynamic viscosity (my)
 		% TODO use equation 2.3 in julien
-		viscosity = struct('dynamic',struct('water',1e-3), ... % Pa*s = kg/sm
-		                   'kinematic',struct('water',1e-6));
+		%viscosity = struct('dynamic',struct('water',1e-3), ... % Pa*s = kg/sm
+		%                   'kinematic',struct('water',1e-6));
 		 % = struct('water', 1e-3);
-		packing_density = struct('Spheres',0.65);
+		packing_density = struct('spheres',0.65);
 
 		% yield strength : onset of plastic behaviour
 		yield_strength_Pa = struct(   'quartz', 158*1e6, ...
@@ -73,6 +73,8 @@ classdef Constant
 		t_K  = celsius_to_kelvin(t_C);
 		d    = pressure_to_depth(p,p0);
 		p    = depth_to_pressure(d,p0);
+		[nu,mu] = viscosity_kinematic_water(T_C);
+		mu = viscosity_dynamic_water(T_C);
 		%d = dimensionless_grain_size(d50,rhos);
 		%theta = critical_shear_stress_ratio(dstar,mode);
 	end % methods (Static)
