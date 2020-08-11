@@ -18,12 +18,12 @@
 	C = 3/2*K*(1-bf/b)*C/(rho*a);
 
 
-Disk vs spherical scatter
-adisk = (1+2e)/2 (2/(3e))^2/3 asphere
-attenuation coefficient, C is mass concentration
-c = a C
-
-Scatter: (lynch 1994)
-a:
-R  = aopt*3/4*1/a;
+%Disk vs spherical scatter
+%adisk = (1+2e)/2 (2/(3e))^2/3 asphere
+%attenuation coefficient, C is mass concentration
+%c = a C
+%
+%Scatter: (lynch 1994)
+%a:
+%R  = aopt*3/4*1/a;
 

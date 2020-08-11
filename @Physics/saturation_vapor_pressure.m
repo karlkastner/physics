@@ -15,5 +15,10 @@ function psat = saturation_vapor_pressure(ps0,T)
 		% iso
 		psat = ps0*10.^(-6.8346*(T01./T).^1.261 + 4.6151);
 	end
+if (0)
+	% simple
+	P_kPa = 101;
+	e_s = (1.0007 + (3.46e-5*P_kPa))*
+end
 end
 

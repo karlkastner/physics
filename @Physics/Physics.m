@@ -1,7 +1,7 @@
 % Wed Aug 27 10:42:35 CEST 2014
 % Karl Kastner, Berlin
 %
-%% Constant and physical standard quantities
+%% Physics and physical standard quantities
 %
 %  This program is free software: you can redistribute it and/or modify
 %  it under the terms of the GNU General Public License as published by
@@ -15,7 +15,7 @@
 %  
 %  You should have received a copy of the GNU General Public License
 %  along with this program.  If not, see <https://www.gnu.org/licenses/>.
-classdef Constant
+classdef Physics
 	properties (Constant)
 		% von Karman constant
 		Karman = 0.41;
@@ -26,11 +26,13 @@ classdef Constant
 		MINUTES_PER_YEAR = 1440*365.25;
 		SECONDS_PER_DAY  = 86400;
 		SECONDS_PER_YEAR = 86400*365.25;
+		DB2NEPER = log(10)/20;
 		% unit kg/m^3
-		density = struct( 'water',  1000, ...
-                                  'quartz', 2650,...
-				  'steel',  8000, ...
-				  'aluminium', 2700);
+		density = struct( 'water',     1000, ...
+                                  'quartz',    2650,...
+				  'steel',     8000, ...
+				  'aluminium', 2700, ...
+				  'air',       1.225);
 		% note: temperature dependend, here 20DegC is adopted
 		% unit Pa*s
 		% kinematic is nu=mu/rho
@@ -53,6 +55,17 @@ classdef Constant
 					      'quartz',  77*1e9, ...
 					      'brass',  100*1e9 ...
 					    );
+
+		% W/(m s K)
+		thermal_conductivity = struct(     'glass', 0.96, ...
+		           	    		'concrete', 0.90, ...
+			   	    		    'wood', 0.08, ...
+			       			     'air', 0.024 );
+
+		% J/(C*kg)
+		heat_capacity = struct('water', 4.186e3, ...
+				       'air',   0.72e3 );
+
 		%
 		% Mathematics
 		%
@@ -67,6 +80,7 @@ classdef Constant
 		BAR_PER_PASCAL = 1e-5;
 	end % Const
 	methods (Static)
+		q    = thermal_flux(dT,A,dx,k);
 		c    = sound_velocity_water(T);
 	        alpha = sound_absorption_water(f,S,D,T,model);
 		t_C  = kelvin_to_celsius(t_K);
