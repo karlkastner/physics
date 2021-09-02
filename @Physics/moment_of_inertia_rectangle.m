@@ -1,7 +1,8 @@
 % Wed 30 Oct 16:29:05 +08 2019
 % for thin bars this becomes: 1/2*w^3*h
 % function I2 = moment_of_intertia_rectangle(w,h)
-function [Ix,Iy,Ixy] = moment_of_intertia_rectangle(w,h)
+% note : not for bending, for bending, moment of area is required
+function [Ix,Iy,Ixy] = moment_of_inertia_rectangle(w,h)
 	Ix = w*h^3/12;
 	Iy = w^3*h/12;
 	Ixy = Ix + Iy;

@@ -9,6 +9,10 @@
 %%
 %% Savenije 1993c, Savenije, Salinity and Tides, eg. 5.70
 function D0_hws = dispersion_hws_savenije(v0,E0,h0,a,Nr)
-	D0_hws = 1400*v0.*E0.*h0./a.*sqrt(Nr);
+	if (a < 1) % convergent
+		D0_hws = 1400*v0.*h0*sqrt(Nr);
+	else
+		D0_hws = 1400*v0.*h0.*E0./a.*sqrt(Nr);
+	end
 end
 

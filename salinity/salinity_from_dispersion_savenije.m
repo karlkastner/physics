@@ -10,7 +10,7 @@
 % A0 : cross sectional area at mouth
 % a  : convergence length of area
 % x  : upstream distance to locations, where salinity is calculated with
-function [S D] = salinity(S0,D0,K,Qf,A0,a,x)
+function [S, D] = salinity_from_dispersion_savenije(S0,D0,K,Qf,A0,a,x)
 	% 4.23
 	% D/D0 = (S/S0)^k 
 

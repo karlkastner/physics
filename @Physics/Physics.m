@@ -72,7 +72,11 @@ classdef Physics
 		% euler
 		Euler = exp(1);
 		
-		sound_velocity_quartz = 5968;
+		sound_velocity = struct('quartz', 5968, ...
+					'air',    343);
+
+		ce2 = 1.92;
+		cmu = 0.09;
 
 		%
 		% pressure
@@ -89,6 +93,10 @@ classdef Physics
 		p    = depth_to_pressure(d,p0);
 		[nu,mu] = viscosity_kinematic_water(T_C);
 		mu = viscosity_dynamic_water(T_C);
+		[d_m,theta] = beam_bending_deflection(F_N,l_m,E_Pa,Iz_m4);
+		s = beam_bending_stress(F_N,l_m,E_Pa,Iz_m4);
+		M = beam_bending_moment(F_N,l_m);
+		[Ix,Iy,Ixy] = moment_of_inertia_rectangle(w,h);
 		%d = dimensionless_grain_size(d50,rhos);
 		%theta = critical_shear_stress_ratio(dstar,mode);
 	end % methods (Static)

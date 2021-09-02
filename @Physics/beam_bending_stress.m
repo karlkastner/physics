@@ -2,8 +2,8 @@
 % s / Pa = 1
 % note : plate springs back even if yield stress is exceeded (but not all the way)
 function s = beam_bending_stress(F_N,l_m,E_Pa,Iz_m4)
-	M   = beam_bending_moment(F_N,l_m);
-	y_m = beam_bending_deflection(F_N,l_m,E_Pa,Iz_m4);
+	M   = Physics.beam_bending_moment(F_N,l_m);
+	y_m = Physics.beam_bending_deflection(F_N,l_m,E_Pa,Iz_m4);
 	% resistance
 	W = Iz_m4/y_m;
 	s = M/W;
