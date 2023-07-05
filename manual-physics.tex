@@ -16,7 +16,7 @@ breaklines=true
 \setlength{\cftsubsecnumwidth}{3.5em}
 
 \title{Manual for Package:
-physics\protect\\Revision 1:9M
+physics\protect\\Revision 11M
 }
 \author{Karl K\"astner}
 %\date{}
@@ -118,7 +118,17 @@ ${}$
  convert temperature degree Kelvin to Celsius
 
 \end{lstlisting}
+\subsection{magnetic\_pull\_force}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
 \subsection{minimum\_cable\_diameter}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{moment\_of\_area}
 ${}$
 \begin{lstlisting}
 
@@ -212,6 +222,302 @@ ${}$
 \begin{lstlisting}
 
 \end{lstlisting}
+\section{acoustics/@Backscatter}
+\subsection{Backscatter}
+${}$
+\begin{lstlisting}
+ acoustic backscatter processing
+
+\end{lstlisting}
+\subsection{backscatter2ssc}
+${}$
+\begin{lstlisting}
+ convert backscatter to suspended sediment concentration
+ c.f lee hanes / sassi, with linear relation for reference concentration
+
+\end{lstlisting}
+\subsection{backscatter2ssc\_implicit}
+${}$
+\begin{lstlisting}
+ convert backscatter to suspended sediment concentration
+
+ this is the methog called "implicit" by hanes, though it is here still
+ implemented in an explicit way, as "explicit/imlicit" in hanes only
+ mean euler forward or trapezoidal integration
+
+\end{lstlisting}
+\subsection{backscatter2ssc\_implicit\_sample}
+${}$
+\begin{lstlisting}
+ convert backscatter to suspended sediment concentration, implicit method
+
+\end{lstlisting}
+\subsection{backscatter2ssc\_sample}
+${}$
+\begin{lstlisting}
+ convert backscatter 2 suspended sediment concentration
+
+\end{lstlisting}
+\subsection{backscatter2ssc\_sassi}
+${}$
+\begin{lstlisting}
+ convert backscatter to suspended sediment concentration
+ c.f. sassi
+
+\end{lstlisting}
+\subsection{backscatter2ssc\_sassi\_sample}
+${}$
+\begin{lstlisting}
+ convert backscatter to suspended sediment concentration
+ c.f. sassi
+
+\end{lstlisting}
+\subsection{fit}
+${}$
+\begin{lstlisting}
+ fit backscatter coefficients
+
+ function [res, leverage, w, obj] = fit(obj,ssc0,R0,R,bs,last,param0)
+
+ ssc0		- ns x 1, reference concentration
+ R0            - ns x 1, distance to sample along beam
+ bs            - ns x nbin, backscatter profile per sample
+ R             - ns x nbin, distance to bin from transducer along beam
+ last          - last : index last valid bin
+ param0        - initial value for parameters
+
+\end{lstlisting}
+\subsection{regmat}
+${}$
+\begin{lstlisting}
+ regression matrix
+
+\end{lstlisting}
+\section{acoustics/backscatter}
+\subsection{attenuation}
+${}$
+\begin{lstlisting}
+
+ accoustic attenuation coefficient of suspended particles
+
+ c.f hanes 2012
+
+ input
+ [d_mm]   = mm            : (sieve) diameter of particles
+ [f_hz]   = Hz = 1/s      : transducer frequency
+ [C_kgm3] = kg/m^3 = mg/l : mass concentration of sediment
+
+ output
+ [a_s]    = 1/m (neper) : total attenuation per unit distance
+  a_snu   : viscuous attenuation
+  a_ss    : attenuation due to scattering
+ for db : chi_db  = 8.7 chi_neper
+
+ for normalization : chi_s = a_s(C_kgm3=2650)
+
+ function [as,asnu,ass,X,chi] = attenuation_coefficient(d_mm,f,C_kgm3,mode)
+
+
+\end{lstlisting}
+\subsection{backscatter\_coefficient}
+${}$
+\begin{lstlisting}
+ analytic determination of the backscatter coefficient
+
+\end{lstlisting}
+\subsection{backscatter\_coefficient\_2}
+${}$
+\begin{lstlisting}
+ analytic basckatter coefficient
+ thorne 2002
+ thorne 2012
+
+\end{lstlisting}
+\subsection{backscatter\_form\_function}
+${}$
+\begin{lstlisting}
+ acoustic backscatter form function
+
+ input
+ d_mm : particle diameter
+ f_Hz : transducer sound frequency
+ 
+ output
+ fbs :
+
+\end{lstlisting}
+\subsection{backscatter\_to\_concentration}
+${}$
+\begin{lstlisting}
+ convert acoustic backscatter to suspended sediment mass concentration
+ backscatter S has to be corrected for attenuation
+
+\end{lstlisting}
+\subsection{backscatter\_to\_concentration2}
+${}$
+\begin{lstlisting}
+ convert acoustic backscatter to sediment concentration
+
+\end{lstlisting}
+\subsection{calibrate\_backscatter}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{derive\_attenuation\_coefficient}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{differential\_cross\_section\_geometric}
+${}$
+\begin{lstlisting}
+ differential cross section
+ geometrical backscattering for spherical bodies
+ ka >> 1, large particles or high frequencies
+ k : wave number
+ a : radius of the particle
+
+ sigma
+
+\end{lstlisting}
+\subsection{intensity\_ratio\_sphere}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{normalized\_particle\_radius}
+${}$
+\begin{lstlisting}
+ normalized particle radius
+
+\end{lstlisting}
+\subsection{scattering\_cross\_section}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{scattering\_cross\_section3}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{scattering\_cross\_section\_general}
+${}$
+\begin{lstlisting}
+
+ acoustic cross sectin ? of sediment particles
+ Medwin, ch. 7.5.3
+ Axially Symmetric Spherical Mode Solutions
+
+\end{lstlisting}
+\subsection{scatterring\_cross\_section\_merckelbach}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{sigma\_rayleigh}
+${}$
+\begin{lstlisting}
+ Rayleigh scattering for a sphere (ka << 1)
+ small particles or low frequencies
+ Medwin 7.5.2 Rayleigh Scatter From a Sphere (ka << 1)
+
+\end{lstlisting}
+\subsection{simulate\_backscatter}
+${}$
+\begin{lstlisting}
+ backscatter as it would be measured,
+ when radial spreading, near field distortion and attnuation by water have been corrected for,
+ i.e. backscatter as caused and attenuated by sediment
+ 
+ output :
+   bs : backscatter
+  ibs : integral of backscatter from transducer
+
+ bs(R)  = 1/ks(R)^2*C(R)*exp(-int_0^R 2 as(r) dr)
+ ibs(R) = int_0^R bs(r) dr
+
+ values are integrated by the midpoint rule
+
+ input :
+ dr_m : steps of radial distance from transducer,
+        not necessarily along the vertical
+ d_mm : sediment diameter
+ C_kg : mass concentration of sediment given at mid-points
+ f_Hz : sound frequency of transducer
+
+ dimensions:
+  	1 (row)    : along range
+ 	2 (column) : ensemble / profile (space-time)
+      3          : grain size class
+
+\end{lstlisting}
+\subsection{ssc2backscatter}
+${}$
+\begin{lstlisting}
+ convert suspended sediment concentration to backscatter,
+ not including attenuatio by sediment
+
+
+ function bs = ssc2backscatter(ssc,d_mm,f,varargin)
+
+ input
+ d_mm   : particle radius
+ f_Hz   : transducer frequency
+ C_kgm3 : mass concentration of sediment [ssc] = g/l = kg/m^3
+
+ output
+ bs : backscatter, [bs] = (m/s)^2
+
+\end{lstlisting}
+\subsection{viscuous\_attenuation}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\section{acoustics}
+\subsection{backscatter\_form\_function\_theoretic}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{coherent\_backscatter\_threshold}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{sound\_pressure\_sphere\_collision}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{sound\_pressure\_to\_db}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{sound\_reflection\_water\_surface}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{sound\_transmission\_coefficient}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\section{physics}
+\subsection{distance\_two\_horizon}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{electrical\_resistance}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
 \section{hydrogen-spectrum}
 \subsection{hydrogen\_spectrum\_1d}
 ${}$
@@ -229,6 +535,128 @@ ${}$
 
 \end{lstlisting}
 \subsection{hydrogen\_spectrum\_3d}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\section{hydrology}
+\subsection{Weather}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{critical\_pressure\_head}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{derive\_equilibrium\_soil\_moisture\_profile\_brooks\_corey}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{dielectricity\_to\_soil\_moisture}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{equilibrium\_soil\_moisture\_profile\_brooks\_corey}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{hydraulic\_conductivity\_from\_water\_content}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{hydraulic\_conductivity\_genuchten\_from\_pressure}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{ice\_bearing\_thickness}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{ice\_growth\_thickness}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{infiltration\_phillips}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{normalized\_water\_content}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{open\_water\_evaporation}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{potential\_evapotranspiration\_abtew}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{potential\_evapotranspiration\_blaney\_criddle}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{potential\_evapotranspiration\_langbein}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{potential\_evapotranspiration\_makking}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{potential\_evapotranspiration\_turc}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{simulate\_weather}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{soil\_freezing\_depth}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{solar\_radiation}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\section{mechanics}
+\subsection{moment\_of\_inertia\_cylinder}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{shoreA\_to\_youngs\_modulus}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{shoreD\_to\_youngs\_modulus}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{strain}
 ${}$
 \begin{lstlisting}
 
@@ -279,6 +707,11 @@ ${}$
 \begin{lstlisting}
 
 \end{lstlisting}
+\subsection{estuarine\_richardson\_number}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
 \subsection{richardson\_number}
 ${}$
 \begin{lstlisting}
@@ -293,12 +726,22 @@ ${}$
  N    : Cramer number
 
 \end{lstlisting}
-\subsection{salinity}
+\subsection{salinity\_dot}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{salinity\_from\_dispersion\_savenije}
 ${}$
 \begin{lstlisting}
 
 \end{lstlisting}
 \subsection{salinity\_intrusion\_length}
+${}$
+\begin{lstlisting}
+
+\end{lstlisting}
+\subsection{salinity\_ode}
 ${}$
 \begin{lstlisting}
 

@@ -17,11 +17,19 @@ function [S, D] = salinity_from_dispersion_savenije(S0,D0,K,Qf,A0,a,x)
 	% diffusion coefficient
 	% 4.36
 	%D = D0 - K*a*Qf/A0 * (exp(x/a) - 1);
-	D = bsxfun(@minus,D0,K*a*Qf/A0 * (exp(x/a) - 1));
+	% integrate x./a
+	if (~isscalar(a))
+		dx = diff([0;cvec(x)]);
+		x_div_a = cumsum(1./a.*dx);
+	else
+		x_div_a = x./a;
+	end
+
+	D = bsxfun(@minus,D0,K.*a.*Qf./A0.*(exp(x_div_a) - 1));
 	D = max(0,D);
 	% 5.45
 	% Salinity concentration
 	D_div_D0 = bsxfun(@times,D,1./D0);
-	S = S0*(D_div_D0).^(1/K);
+	S = S0.*(D_div_D0).^(1./K);
 end
 
