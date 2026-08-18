@@ -1,3 +1,4 @@
+% 2024-09-04 14:56:21.772980812 +0200
 % M : kg
 function h = ice_bearing_thickness(M)
 	g = 9.81; % m/s^2

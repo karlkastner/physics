@@ -15,7 +15,7 @@ function Nr = richardson_number(drho,rho,h,v,N)
 	if (isempty(rho))
 		rho = 1e3;
 	end
-	g = 9.81;
+	g = Physics.gravity;
 	Nr = drho./rho.*g.*h./v.^2.*N; % N=Qf*T/Pt 
 end
 

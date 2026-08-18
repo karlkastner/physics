@@ -5,7 +5,7 @@ function [Nr] = estuarine_richardson_number(Delta_rho,rho,h,v,Qf,T,P)
 	if (issym(v))
 		syms g
 	else
-		g = 9.81;
+		g = Physics.gravity;
 	end
 	Nr = Delta_rho/rho*g*h/(v^2)*Qf*T/P;
 end

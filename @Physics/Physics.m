@@ -20,8 +20,7 @@ classdef Physics
 		% von Karman constant
 		Karman = 0.41;
 		% acceleration by gravity on earth
-		g = 9.81; % m/s^2
-		gravity = 9.81;
+		gravity = 9.81; % m/s^2
 		MINUTES_PER_DAY  = 1440;
 		MINUTES_PER_YEAR = 1440*365.25;
 		SECONDS_PER_DAY  = 86400;

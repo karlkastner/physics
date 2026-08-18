@@ -6,7 +6,7 @@
 % h_c : critical head
 % c.f. kelving equation
 function h_c = critical_pressure_head(Hr,T_C)
-	g = 9.81;
+	g = Physics.gravity;
 	% Hr = exp(g h_c M /(R T)]
 	% T : absolute temperature (Kelvin)
 	T_K = 273 + T_C;
